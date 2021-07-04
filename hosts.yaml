@@ -20,7 +20,7 @@ all:
     etcd:
       hosts:
         node1:
-      k8s_cluster:
+    k8s_cluster:
       children:
         kube_control_plane:
         kube_node:
