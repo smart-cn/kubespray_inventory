@@ -19,7 +19,7 @@ ssh-copy-id -i ~/.ssh/id_rsa vagrant@host
 ```
 ansible-playbook -i inventory/mycluster/hosts.yaml -u vagrant -b -v --private-key=~/.ssh/id_rsa cluster.yml --ask-become-pass
 sudo cp /root/.kube/config /home/vagrant/.kube/
-sudo chown vagrant:vagrant .kube/config
+sudo chown vagrant:vagrant /home/vagrant/.kube/config
 ```
 
 **Removing cluster:**
