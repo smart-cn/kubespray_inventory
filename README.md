@@ -5,11 +5,11 @@
 **Kubespray installation:**
 ```
 sudo apt-get update;  sudo apt-get -y install python3-pip
-pip3 install ansible
-export PATH=$PATH:$HOME/.local/bin/
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-sudo pip3 install -r requirements.txt
+git checkout $(git describe --tags `git rev-list --tags --max-count=1`) -q
+pip3 install -r requirements.txt
+export PATH=$PATH:$HOME/.local/bin/
 git clone https://github.com/smart-cn/kubespray_inventory.git inventory/mycluster
 ```
 
