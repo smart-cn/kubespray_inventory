@@ -39,6 +39,12 @@ Getting access token:
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep fulladmin | awk '{print $1}')  | grep 'token:' | sed -e's/token:\| //g'
 ```
 
+
+**Adding Dashboard to the ingress (if required)**
+```
+kubectl apply -f inventory/mycluster/dashboard_ingress.yaml
+```
+
 **Deploying helloworld example as the root web page and adding it to the ingress (if required):**
 ```
 kubectl apply -f inventory/mycluster/hello_world.yaml
