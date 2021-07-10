@@ -29,7 +29,22 @@ sudo cp /root/.kube/config $HOME/.kube/
 sudo chown vagrant:vagrant $HOME/.kube/config
 ```
 
-**K9s installation**
+
+**Adding admin account for the Dashboard (if required):**
+```
+kubectl apply -f inventory/mycluster/dashboard_admin_account.yaml
+```
+Getting access token:
+```
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep fulladmin | awk '{print $1}')  | grep 'token:' | sed -e's/token:\| //g'
+```
+
+**Deploying helloworld example as the root web page and adding it to the ingress (if required):**
+```
+kubectl apply -f inventory/mycluster/hello_world.yaml
+```
+
+**K9s installation:**
 ```
 sudo wget -qO- https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_x86_64.tar.gz | tar zxvf -  -C /tmp/; sudo mv /tmp/k9s /usr/local/bin
 ```
@@ -39,8 +54,3 @@ sudo wget -qO- https://github.com/derailed/k9s/releases/latest/download/k9s_Linu
 ansible-playbook -i inventory/mycluster/hosts.yaml -u vagrant -b -v --private-key=~/.ssh/id_rsa reset.yml --ask-become-pass
 ```
 
-## 2DO:
-* Looks like with the latest docker on each hardnode an iptables rule must be added (need to recheck):
-```
-sudo iptables -P FORWARD ACCEPT 
-```
