@@ -29,6 +29,14 @@ sudo cp /root/.kube/config $HOME/.kube/
 sudo chown vagrant:vagrant $HOME/.kube/config
 ```
 
+**Adding MetalLB to the cluster (if required):**
+```
+kubectl create ns metallb
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb -n metallb -f inventory/mycluster/lb-values-virtualbox.yaml
+kubectl get configmap kube-proxy -n kube-system -o yaml | sed -e "s/strictARP: false/strictARP: true/" | kubectl apply -f - -n kube-system
+```
+
 
 **Adding admin account for the Dashboard (if required):**
 ```
