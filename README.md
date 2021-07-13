@@ -13,12 +13,13 @@ export PATH=$PATH:$HOME/.local/bin/
 git clone https://github.com/smart-cn/kubespray_inventory.git inventory/mycluster
 ```
 
-**Preparation on master node (for each worker node):**
+**Preparation on master node (for each node):**
 ```
 ssh-keygen -b 4096 -q -t rsa -N '' -f ~/.ssh/id_rsa 2>&1 > /dev/null
 ssh-copy-id -i ~/.ssh/id_rsa vagrant@172.16.35.10
 ssh-copy-id -i ~/.ssh/id_rsa vagrant@172.16.35.11
 ssh-copy-id -i ~/.ssh/id_rsa vagrant@172.16.35.12
+ssh-copy-id -i ~/.ssh/id_rsa vagrant@172.16.35.13
 ```
 
 **Creating cluster:**
