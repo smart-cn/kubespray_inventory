@@ -29,6 +29,11 @@ sudo cp /root/.kube/config $HOME/.kube/
 sudo chown vagrant:vagrant $HOME/.kube/config
 ```
 
+**Deploying NFS storage to the separated node (if required):**
+```
+kubectl apply -f inventory/mycluster/nfs-storage-deployments-with-toleration.yaml
+```
+
 **Adding MetalLB to the cluster (if required):**
 ```
 kubectl create ns metallb
