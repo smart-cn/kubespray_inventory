@@ -1,17 +1,17 @@
 all:
   hosts:
     node1:
-      ansible_host: 172.16.35.10
-      ip: 172.16.35.10
+      ansible_host: 172.18.8.10
+      ip: 172.18.8.10
     node2:
-      ansible_host: 172.16.35.11
-      ip: 172.16.35.11
+      ansible_host: 172.18.8.11
+      ip: 172.18.8.11
     node3:
-      ansible_host: 172.16.35.12
-      ip: 172.16.35.12
+      ansible_host: 172.18.8.12
+      ip: 172.18.8.12
     node4:
-      ansible_host: 172.16.35.13
-      ip: 172.16.35.13
+      ansible_host: 172.18.8.13
+      ip: 172.18.8.13
   children:
     kube_control_plane:
       hosts:
