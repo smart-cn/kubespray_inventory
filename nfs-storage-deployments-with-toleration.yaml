@@ -130,6 +130,8 @@ spec:
           operator: "Equal"
           value: "nfs-storage"
           effect: "NoSchedule"
+      nodeSelector:
+        node-role.kubernetes.io/nfs-storage: "true"
       volumes:
         - name: export-volume
           hostPath:
