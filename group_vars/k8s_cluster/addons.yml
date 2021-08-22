@@ -87,17 +87,21 @@ rbd_provisioner_enabled: false
 ingress_nginx_enabled: true
 # ingress_nginx_host_network: false
 ingress_publish_status_address: ""
-# ingress_nginx_nodeselector:
-#   kubernetes.io/os: "linux"
-# ingress_nginx_tolerations:
-#   - key: "node-role.kubernetes.io/master"
-#     operator: "Equal"
-#     value: ""
-#     effect: "NoSchedule"
-#   - key: "node-role.kubernetes.io/control-plane"
-#     operator: "Equal"
-#     value: ""
-#     effect: "NoSchedule"
+ ingress_nginx_nodeselector:
+   kubernetes.io/os: "linux"
+ ingress_nginx_tolerations:
+   - key: "node-role.kubernetes.io/master"
+     operator: "Equal"
+     value: ""
+     effect: "NoSchedule"
+   - key: "node-role.kubernetes.io/control-plane"
+     operator: "Equal"
+     value: ""
+     effect: "NoSchedule"
+   - key: "dedicated"
+     operator: "Equal"
+     value: "nfs-storage"
+     effect: "NoSchedule"
 # ingress_nginx_namespace: "ingress-nginx"
 # ingress_nginx_insecure_port: 80
 # ingress_nginx_secure_port: 443
