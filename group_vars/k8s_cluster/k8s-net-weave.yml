@@ -54,7 +54,7 @@
 # weave_no_masq_local: true
 
 # set to nft to use nftables backend for iptables (default is iptables)
-# weave_iptables_backend: iptables
+# weave_iptables_backend: nft
 
 # Extra variables that passing to launch.sh, useful for enabling seed mode, see
 # https://www.weave.works/docs/net/latest/tasks/ipam/ipam/
