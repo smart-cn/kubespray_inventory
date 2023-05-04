@@ -46,16 +46,16 @@
         state: latest
       when: ansible_pkg_mgr == 'yum'
 
-    - name: Install NFS utils and mc (apt)
+    - name: Install required packages (apt)
       become: true
       apt:
-        name: nfs-common, mc
+        name: nfs-common, mc, python3-pip
         state: latest
       when: ansible_pkg_mgr == 'apt'
 
-    - name: Install NFS utils and mc (yum)
+    - name: Install required packages (yum)
       become: true
       yum:
-        name: nfs-utils, mc
+        name: nfs-utils, mc, python3-pip
         state: latest
       when: ansible_pkg_mgr == 'yum'
