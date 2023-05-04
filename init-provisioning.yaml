@@ -49,13 +49,13 @@
     - name: Install required packages (apt)
       become: true
       apt:
-        name: nfs-common, mc, python3-pip
+        name: nfs-common, mc
         state: latest
       when: ansible_pkg_mgr == 'apt'
 
     - name: Install required packages (yum)
       become: true
       yum:
-        name: nfs-utils, mc, python3-pip
+        name: nfs-utils, mc
         state: latest
       when: ansible_pkg_mgr == 'yum'
