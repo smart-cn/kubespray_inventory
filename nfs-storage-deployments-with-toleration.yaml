@@ -131,7 +131,7 @@ spec:
           value: "nfs-storage"
           effect: "NoSchedule"
       nodeSelector:
-        node-role.kubernetes.io/nfs-storage: "true"
+        nfs: "true"
       volumes:
         - name: export-volume
           hostPath:
