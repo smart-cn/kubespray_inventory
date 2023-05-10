@@ -126,9 +126,7 @@ spec:
             - name: export-volume
               mountPath: /export
       tolerations:
-        - key: "dedicated"
-          operator: "Equal"
-          value: "nfs-storage"
+        - key: "ddedicated-nfs-storage"
           effect: "NoSchedule"
       nodeSelector:
         node-role.kubernetes.io/nfs-storage: "true"
